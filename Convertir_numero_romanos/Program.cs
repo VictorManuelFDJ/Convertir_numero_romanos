@@ -1,10 +1,7 @@
 ﻿namespace Convertir_numero_romanos
 {
-    internal class Program
+    public class ConvertirNumeroRomanos
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
+      
     }
 }
