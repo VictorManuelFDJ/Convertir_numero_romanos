@@ -2,7 +2,7 @@
 {
     public class ConvertirNumeroRomanos
     {
-        private static int ValorRomano(char simbolo)
+        private static int valorRomanos(char simbolo)
         {
             switch (simbolo)
             {
@@ -21,20 +21,24 @@
         public static int ConvertirADecimales(string numeroRomano) {
             int resultado = 0;
             for(int i = 0; i < numeroRomano.Length; i++) { 
-                int valorActual = ValorRomano(numeroRomano[i]);
+                int valorActual = valorRomanos(numeroRomano[i]);
 
                 if (i + 1 < numeroRomano.Length)
                 {
-                    int valorSiguiente = (numeroRomano[i + 1]);
+                    int valorSiguiente = valorRomanos(numeroRomano[i + 1]);
 
                     if (valorActual < valorSiguiente)
                     {
                         resultado -= valorActual;
-
                     }
-                    else { 
+                    else
+                    {
                         resultado += valorActual;
                     }
+                }
+                else
+                {
+                    resultado += valorActual;
                 }
             }
             return resultado;
@@ -43,9 +47,13 @@
 
         static void Main(string[] args)
         {
-            string numeroRomano1 = "III";
-            int decimal1 = ConvertirADecimales(numeroRomano1);
-            Console.WriteLine($"El número romano {numeroRomano1} es {decimal1} en decimal.");
+            Console.WriteLine("Ingrese un número romano:");
+
+            string numRomano = Console.ReadLine().ToUpper();
+
+            int numDecimal = ConvertirADecimales(numRomano);
+
+            Console.WriteLine($"El número Romano {numRomano} en decimal es: {numDecimal}");
         }
     }
 }
